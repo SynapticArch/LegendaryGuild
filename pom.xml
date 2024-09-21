@@ -20,8 +20,9 @@
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
         <repository>
-            <id>placeholderapi</id>
-            <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+           <id>helpchat-repo-content</id>
+           <name>HelpChat Maven Repository</name>
+           <url>https://repo.extendedclip.com/content</url>
         </repository>
         <repository>
             <id>jitpack.io</id>

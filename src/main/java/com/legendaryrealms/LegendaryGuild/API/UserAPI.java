@@ -382,6 +382,10 @@ public class UserAPI {
         activityData.clearPlayerData(user.getPlayer());
         activityData.update();
 
+        //刷新公会buff
+        updatePlayerBuffAttribute(p);
+
+
         Bukkit.getPluginManager().callEvent(new PlayerQuitGuildEvent(p,guild));
 
         legendaryGuild.getMsgUtils().sendGuildMessage(guild.getMembers(),lang.plugin+lang.quit_broad.replace("%value%",p.getName()).replace("%position%",position));
@@ -513,7 +517,7 @@ public class UserAPI {
         MoveEvent.deletePlayerWaitTeleport(p.getName());
         if (location.getServer().equals(legendaryGuild.SERVER)){
             if (location.getLocation().isPresent()){
-                Bukkit.getScheduler().runTask(legendaryGuild,()->
+                LegendaryGuild.getInstance().getScheduler().runTask(legendaryGuild,()->
                 {
                     p.teleport(location.getLocation().get());
                     p.sendMessage(lang.plugin+lang.home_teleport);
